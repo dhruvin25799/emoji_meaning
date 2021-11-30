@@ -7,13 +7,21 @@ const emojiDictionary = {
   "🥡": "takeout box",
   "❤️": "love",
   "😑": "annoyance",
-  "🦹‍♀️": "Nishtha"
+  "🦹‍♀️": "Supervillain Woman",
+  "❤️": "Red Heart",
+  "✨": "Sparkles",
+  "🎄": "Christmas Tree",
+  "🔥": "Fire",
+  "😂": "Face with Tears of Joy",
+  "🥺": "Pleading Face",
+  "🥰": "Smiling Face with Hearts",
+  "✔️": "Check Mark"
 };
 const emojis = Object.keys(emojiDictionary);
 
 export default function App() {
-  const [emoji, setEmoji] = useState(""); /** concept 2 is useState */
-  const [meaning, setMeaning] = useState("translation will appear here..");
+  const [emoji, setEmoji] = useState("");
+  const [meaning, setMeaning] = useState();
 
   function changeHandler(event) {
     const inputEmoji = event.target.value;
@@ -22,7 +30,9 @@ export default function App() {
     if (inputEmoji in emojiDictionary) {
       setMeaning(emojiDictionary[inputEmoji]);
     } else {
-      setMeaning("failure to recognise this emoji");
+      setMeaning(
+        "This emoji is not in our dictionary, please contact Dhruvin with the meaning to update it."
+      );
     }
   }
 
